@@ -1,3 +1,37 @@
+html {
+  box-sizing: border-box;
+  font-size: 18px;
+}
 body {
-  background-color: red; // CSS is working
+  margin: 0;
+  background-color: lightgray; // CSS is working
+}
+header {
+  .header-banner {
+    background-color: darkblue;
+    min-height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .logo {
+      color: lightgray;
+      padding: 20px;
+    }
+  }
+}
+.hero {
+  height: 500px;
+  .hero-banner {
+    height: 100%;
+    background: url("https://placekitten.com/1400/600") no-repeat center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .hero-title {
+      font-size: 3rem;
+      color: white;
+      text-align: center;
+    }
+  }
 }
