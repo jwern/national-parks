@@ -1,0 +1,13 @@
+header {
+  .header-banner {
+    background-color: darkblue;
+    min-height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .logo {
+      color: lightgray;
+      padding: 20px;
+    }
+  }
+}

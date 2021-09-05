@@ -1,0 +1,16 @@
+.hero {
+  height: 500px;
+  .hero-banner {
+    height: 100%;
+    background: lightblue url("../images/muir_woods.jpg") no-repeat center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .hero-title {
+      font-size: 3rem;
+      color: white;
+      text-align: center;
+    }
+  }
+}
