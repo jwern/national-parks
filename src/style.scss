@@ -1,15 +1,15 @@
 html {
   box-sizing: border-box;
   font-size: 18px;
-  width: 100%;
   height: 100%;
 }
 body {
   width: 100%;
-  height: 100%;
-  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0;
-  background-color: lightgray; // CSS is working
+  background-color: lightgray;
 }
 header {
   .header-banner {
@@ -41,10 +41,19 @@ header {
     }
   }
 }
+.content-cards {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    .park-info-card {
+      .park-image {
+        max-width: 100%;
+      }
+    }
+  }
+}
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  margin-top: auto;
   .footer-container {
     background-color: darkslateblue;
     color: white;
