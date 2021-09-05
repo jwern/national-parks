@@ -7,7 +7,10 @@ module.exports = merge(common, {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    assetModuleFilename: "[file][ext]",
+    assetModuleFilename: "[file]",
+  },
+  watchOptions: {
+    ignored: /node_modules/,
   },
   stats: {
     children: true,
