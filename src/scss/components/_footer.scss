@@ -3,10 +3,10 @@ footer {
   .footer-container {
     background-color: $dark-green;
     color: $dark-brown;
-    padding: 1rem;
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 1rem;
     @media screen and (min-width: 576px) {
       grid-template-columns: repeat(3, 1fr);
       text-align: unset;
@@ -43,9 +43,9 @@ footer {
       }
     }
     .footer-link {
-      text-decoration: none;
-      color: $vibrant-yellow;
       max-width: max-content;
+      color: $vibrant-yellow;
+      text-decoration: none;
       &:hover {
         color: $soft-yellow;
       }

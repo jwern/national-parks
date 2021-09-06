@@ -12,27 +12,27 @@ html {
 body {
   width: 100%;
   min-height: 100%;
+  background-color: scale-color($brown, $lightness: 80%);
+  color: $brown;
   display: flex;
   flex-direction: column;
   margin: 0;
-  background-color: scale-color($brown, $lightness: 80%);
-  color: $brown;
 }
 .button {
+  width: 5rem;
+  height: 2rem;
   background-color: $vibrant-yellow;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 40px;
   border-radius: 8px;
   box-shadow: 0px 3px 3px -3px $dark-brown;
+  cursor: pointer;
   &:hover {
     background-color: $soft-yellow;
   }
   a {
-    text-decoration: none;
     color: $brown;
+    text-decoration: none;
   }
 }

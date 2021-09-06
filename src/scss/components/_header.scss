@@ -1,15 +1,15 @@
 header {
   .header-banner {
-    background-color: $dark-green;
     min-height: 100px;
+    background-color: $dark-green;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     .logo {
       color: $vibrant-yellow;
-      padding: 1rem;
       font-size: 4rem;
       line-height: 50%;
+      padding: 1rem;
     }
   }
 }
