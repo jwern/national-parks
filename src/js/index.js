@@ -26,6 +26,20 @@ const getParkActivities = (park) => {
   return selection.join(", ");
 };
 
+const gpsNumber = (number) => Number(number).toFixed(3);
+
+const formatCoordinates = (park) => {
+  const latitude = gpsNumber(park.latitude);
+  const longitude = gpsNumber(park.longitude);
+
+  let northSouth, eastWest;
+
+  latitude < 0 ? (northSouth = "S") : (northSouth = "N");
+  longitude < 0 ? (eastWest = "W") : (eastWest = "E");
+
+  return `${latitude} ${northSouth} ${longitude} ${eastWest}`;
+};
+
 const createParkCard = (park) => {
   const cardTemplate = document.getElementById("card-template");
   const card = cardTemplate.content.cloneNode(true);
@@ -42,8 +56,7 @@ const createParkCard = (park) => {
   parkImage.src = park.images[0].url;
 
   const parkCoordinates = card.querySelector(".park-coordinates");
-  // NEED FORMATTING FUNCTION
-  parkCoordinates.innerText = `lat: ${park.latitude}, lon: ${park.longitude}`;
+  parkCoordinates.innerText = formatCoordinates(park);
 
   const parkActivities = card.querySelector(".park-activities");
   parkActivities.innerText = getParkActivities(park);
