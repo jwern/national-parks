@@ -1,6 +1,7 @@
 import "../scss/style.scss";
 import "../template.html"; // For dev-server hot-reload
 import nationalParksKey from "./secret.js";
+import backupParks from "./backupData.js";
 
 const fetchParksData = function () {
   return fetch(
@@ -45,7 +46,7 @@ const createParkCard = (park) => {
   const card = cardTemplate.content.cloneNode(true);
 
   const parkName = card.querySelector(".park-name");
-  parkName.innerText = park.name;
+  parkName.innerText = park.fullName;
 
   const parkDescription = card.querySelector(".park-description");
   // ADD TRUNCATING FUNCTION
@@ -73,7 +74,6 @@ const appendParkCard = (card) => {
 };
 
 const displayParkData = (data) => {
-  console.log(data[0]);
   for (let park of data) {
     let card = createParkCard(park);
     appendParkCard(card);
@@ -84,7 +84,9 @@ const parksData = async () => {
   const data = await fetchParksData();
   if (data) {
     displayParkData(data.data);
-  } // ADD BACKUP IF DATA UNAVAILABLE: A DEFAULT SELECTION OF PARKS
+  } else {
+    displayParkData(backupParks.data);
+  }
 };
 
 parksData();
