@@ -8,6 +8,11 @@ header {
     .logo {
       color: lightgray;
       padding: 1rem;
+      font-size: 4rem;
+      line-height: 50%;
+      ion-icon {
+        box-shadow: 2px 3px -3px black;
+      }
     }
   }
 }
