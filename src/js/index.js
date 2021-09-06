@@ -20,6 +20,8 @@ const fetchParksData = function () {
     .catch((err) => displayError(err));
 };
 
+// We only want the first 3 actiivties at most, but:
+// some parks won't have 3 activities
 const getParkActivities = (park) => {
   const activities = park.activities.slice(0, 3);
   const selection = activities.map((activity) => activity.name);
@@ -41,6 +43,27 @@ const formatCoordinates = (park) => {
   return `${latitude} ${northSouth} ${longitude} ${eastWest}`;
 };
 
+const findNextSpace = (description, max) => {
+  if (description[max] !== " ") {
+    max = description.indexOf(" ", max);
+  }
+
+  return description.slice(0, max);
+};
+
+const truncateDescription = (description) => {
+  const maxCharacters = 160;
+  let shortened;
+
+  if (description.length > maxCharacters) {
+    shortened = `${findNextSpace(description, maxCharacters)}...`;
+  } else {
+    shortened = description;
+  }
+
+  return shortened;
+};
+
 const createParkCard = (park) => {
   const cardTemplate = document.getElementById("card-template");
   const card = cardTemplate.content.cloneNode(true);
@@ -49,8 +72,7 @@ const createParkCard = (park) => {
   parkName.innerText = park.fullName;
 
   const parkDescription = card.querySelector(".park-description");
-  // ADD TRUNCATING FUNCTION
-  parkDescription.innerText = park.description;
+  parkDescription.innerText = truncateDescription(park.description);
 
   const parkImage = card.querySelector(".park-image");
   // could add randomizing function -- pull random image from array
@@ -85,8 +107,8 @@ const parksData = async () => {
   if (data) {
     displayParkData(data.data);
   } else {
-    displayParkData(backupParks.data);
+    displayParkData(backupParks.data); // saved data on 4 parks in case NPS is offline
   }
 };
 
-parksData();
+window.addEventListener("load", parksData);
