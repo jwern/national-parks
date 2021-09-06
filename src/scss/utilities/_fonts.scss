@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Roboto:ital,wght@0,400;0,700;0,900;1,300;1,400&display=swap");
+
+:root {
+  font-size: 20px;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+body {
+  font-family: "Roboto", sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Didact Gothic", sans-serif;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+}

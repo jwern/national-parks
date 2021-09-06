@@ -34,11 +34,17 @@
         }
       }
       .park-name {
-        padding: 0.75rem;
+        padding: 0 0.75rem;
         text-align: center;
       }
+      .title-content-divider {
+        width: 50%;
+        height: 4px;
+        background-color: $dark-green;
+        margin: 0 auto;
+      }
       .park-content-container {
-        padding: 0.75rem;
+        padding: 0 0.75rem;
         .park-description {
           font-style: italic;
         }
@@ -51,7 +57,7 @@
       }
       .park-link-container {
         margin: auto;
-        margin-bottom: 12px;
+        margin-bottom: 1.5rem;
       }
     }
   }
