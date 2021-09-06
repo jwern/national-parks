@@ -19,6 +19,13 @@ const fetchParksData = function () {
     .catch((err) => displayError(err));
 };
 
+const getParkActivities = (park) => {
+  const activities = park.activities.slice(0, 3);
+  const selection = activities.map((activity) => activity.name);
+
+  return selection.join(", ");
+};
+
 const createParkCard = (park) => {
   const cardTemplate = document.getElementById("card-template");
   const card = cardTemplate.content.cloneNode(true);
@@ -39,12 +46,9 @@ const createParkCard = (park) => {
   parkCoordinates.innerText = `lat: ${park.latitude}, lon: ${park.longitude}`;
 
   const parkActivities = card.querySelector(".park-activities");
-  // NEED GETTER / FORMATTING FUNCTION -- not all parks have 3 activities
-  parkActivities.innerText = `${park.activities[0].name}`;
+  parkActivities.innerText = getParkActivities(park);
 
   const parkLink = card.querySelector(".park-link");
-  // decide on link text -- park-unique?
-  parkLink.innerText = "Visit Site";
   parkLink.href = park.url;
 
   return card;
