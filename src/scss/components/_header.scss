@@ -1,18 +1,15 @@
 header {
   .header-banner {
-    background-color: darkblue;
+    background-color: $dark-green;
     min-height: 100px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     .logo {
-      color: lightgray;
+      color: $vibrant-yellow;
       padding: 1rem;
       font-size: 4rem;
       line-height: 50%;
-      ion-icon {
-        box-shadow: 2px 3px -3px black;
-      }
     }
   }
 }

@@ -22,9 +22,9 @@
       flex-direction: column;
       justify-content: flex-start;
       margin-bottom: 1rem;
-      border: 1px solid gray;
+      border: 1px solid $brown;
       border-radius: 6px;
-      box-shadow: 0px 4px 4px -2px black;
+      box-shadow: 0px 4px 4px -2px $dark-brown;
       .park-image-container {
         height: 300px;
         .park-image {

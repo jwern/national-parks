@@ -1,3 +1,4 @@
+@import "utilities/colors";
 @import "components/header";
 @import "components/hero";
 @import "components/cards";
@@ -18,10 +19,11 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  background-color: lightgray;
+  background-color: scale-color($brown, $lightness: 80%);
+  color: $brown;
 }
 .button {
-  background-color: blue;
+  background-color: $vibrant-yellow;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -30,13 +32,10 @@ body {
   height: 40px;
   border-radius: 8px;
   &:hover {
-    background-color: lightyellow;
-    a {
-      color: black;
-    }
+    background-color: $soft-yellow;
   }
   a {
     text-decoration: none;
-    color: white;
+    color: $brown;
   }
 }
