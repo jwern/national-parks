@@ -36,17 +36,24 @@ footer {
         order: 4;
       }
     }
-    .footer-stack {
+    .footer-stack:not(.social-links) {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      @media screen and (min-width: 576px) {
+        align-items: flex-start;
+      }
     }
     .footer-link {
       // text-decoration: none;
       color: white;
-      cursor: pointer;
+      max-width: max-content;
       // &:hover {
       //   box-shadow: 0px 3px 2px -2px rgba(0, 0, 0, 1);
       // }
+    }
+    ion-icon {
+      font-size: 2rem;
     }
   }
 }
