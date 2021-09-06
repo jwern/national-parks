@@ -21,12 +21,26 @@
       </section>
       <template id="card-template">
         <div class="park-info-card">
-          <h3 class="park-name"></h3>
-          <p class="park-description"></p>
-          <img class="park-image" src="#" />
-          <p class="park-coordinates"></p>
-          <p class="park-activities"></p>
-          <a class="park-link" href="#">More Info</a>
+          <div class="park-image-container">
+            <img class="park-image" src="#" alt="" />
+          </div>
+          <div class="park-title-container">
+            <h3 class="park-name"></h3>
+          </div>
+          <div class="park-content-container">
+            <p class="park-description"></p>
+            <div class="labeled">
+              <span class="label">GPS Coordinates:</span>
+              <p class="park-coordinates has-label"></p>
+            </div>
+            <div class="labeled">
+              <span class="label">Activities:</span>
+              <p class="park-activities has-label"></p>
+            </div>
+          </div>
+          <div class="park-link-container button">
+            <a class="park-link" href="#">More Info</a>
+          </div>
         </div>
       </template>
       <section class="content-cards">
