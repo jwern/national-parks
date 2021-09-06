@@ -71,12 +71,13 @@ const createParkCard = (park) => {
   const parkName = card.querySelector(".park-name");
   parkName.innerText = park.fullName;
 
-  const parkDescription = card.querySelector(".park-description");
-  parkDescription.innerText = truncateDescription(park.description);
-
   const parkImage = card.querySelector(".park-image");
   // could add randomizing function -- pull random image from array
   parkImage.src = park.images[0].url;
+  parkImage.alt = park.fullName;
+
+  const parkDescription = card.querySelector(".park-description");
+  parkDescription.innerText = truncateDescription(park.description);
 
   const parkCoordinates = card.querySelector(".park-coordinates");
   parkCoordinates.innerText = formatCoordinates(park);
