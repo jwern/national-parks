@@ -2,7 +2,7 @@
   "name": "national-parks",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --config webpack.dev.js --open",
