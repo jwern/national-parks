@@ -3,4 +3,8 @@ $dark-green: #797d4b;
 $brown: #574f3d;
 $dark-brown: scale-color($brown, $lightness: -40%);
 $vibrant-yellow: #e1ae2f;
-$soft-yellow: #f1be53;
+$orange: #fe5d26;
+
+@mixin hover-fade {
+  transition: all 0.25s linear;
+}

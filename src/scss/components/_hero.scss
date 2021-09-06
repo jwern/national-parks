@@ -8,10 +8,20 @@
     align-items: center;
     justify-content: center;
     .hero-title {
-      color: $soft-yellow;
+      h1 {
+        color: $vibrant-yellow;
+        background: linear-gradient(
+          0deg,
+          rgba(225, 174, 47, 1) 20%,
+          rgba(254, 93, 38, 1) 30%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
       font-size: 3rem;
       text-align: center;
-      text-shadow: 0 1px 2px $brown;
+      // text-shadow: 0 1px 2px $orange;
       padding: 0.5rem;
     }
   }

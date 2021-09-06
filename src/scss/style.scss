@@ -29,7 +29,8 @@ body {
   box-shadow: 0px 3px 3px -3px $dark-brown;
   cursor: pointer;
   &:hover {
-    background-color: $soft-yellow;
+    background-color: $orange;
+    @include hover-fade;
   }
   a {
     color: $brown;
