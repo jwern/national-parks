@@ -1,16 +1,50 @@
+@keyframes walk {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes saunter {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 header {
   .header-banner {
-    min-height: 100px;
+    position: relative;
+    min-height: 15vh;
     background-color: $dark-green;
     background-image: url("../images/egg-shell.png");
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
     .logo {
+      position: absolute;
       color: $vibrant-yellow;
       font-size: 4rem;
       line-height: 50%;
+      cursor: pointer;
       padding: 1rem;
+      &.start-walking {
+        animation: walk 6s 2 alternate ease-in, saunter 1s 12 reverse ease-in;
+      }
+      &.paused {
+        animation-play-state: paused;
+      }
     }
   }
 }
