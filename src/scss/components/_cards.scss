@@ -1,7 +1,15 @@
 .content-cards {
   .cards-heading {
     text-align: center;
-    margin: 4rem 0;
+    margin: 4rem 0.5rem;
+    #state-search {
+      all: unset;
+      background-color: $vibrant-yellow;
+      cursor: pointer;
+      color: $brown;
+      border-radius: 0.5rem;
+      padding: 0 0.5rem;
+    }
   }
   .cards-container {
     display: grid;

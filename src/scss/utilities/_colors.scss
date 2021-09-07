@@ -2,6 +2,7 @@ $light-green: #bcad4a;
 $dark-green: #797d4b;
 $brown: #574f3d;
 $dark-brown: scale-color($brown, $lightness: -40%);
+$transparent-brown: rgba($brown, 0.565);
 $vibrant-yellow: #e1ae2f;
 $orange: #fe5d26;
 
