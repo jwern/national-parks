@@ -17,6 +17,9 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  #no-script-info {
+    padding: 2rem;
+  }
 }
 .button {
   width: 5rem;
