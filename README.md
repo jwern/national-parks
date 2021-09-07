@@ -14,16 +14,16 @@ The additional functionality that has been added beyond the required elements in
 
 If I were to revisit this project in the future, these are some of the additional features I would consider adding:
 
-[ ] Option to view more (or fewer) than 12 parks at a time
-[ ] Option to sort park list
-[ ] Other park search options, like 'view a random park' or 'view park nearest to me' based on location
-[ ] Randomized image selection from the API...
-[ ] ...and/or carousel of images of the park within its card
-[ ] Hero image that updates to match the chosen state...
-[ ] ...and/or hero image that is an auto-scrolling carousel of park images
-[ ] Ability to expand / read more of the truncated description text
-[ ] More accessibility features
-[ ] Jump / anchor buttons for moving between cards on smaller viewports
+- [ ] Option to view more (or fewer) than 12 parks at a time
+- [ ] Option to sort park list
+- [ ] Other park search options, like 'view a random park' or 'view park nearest to me' based on location
+- [ ] Randomized image selection from the API...
+- [ ] ...and/or carousel of images of the park within its card
+- [ ] Hero image that updates to match the chosen state...
+- [ ] ...and/or hero image that is an auto-scrolling carousel of park images
+- [ ] Ability to expand / read more of the truncated description text
+- [ ] More accessibility features
+- [ ] Jump / anchor buttons for moving between cards on smaller viewports
 
 ## Screenshots
 
@@ -84,7 +84,7 @@ const nationalParksKey = "YOUR_KEY_HERE";
 export default nationalParksKey;
 ```
 
-In this file, where you see "YOUR*KEY_HERE", paste the key you get from the NPS website (inside the quotes so it is a string). Then, rename the file to just \_secret.js*: this is the filename [fetchData.js](src/js/fetchData.js) calls to access the API key.
+In this file, where you see "YOUR_KEY_HERE", paste the key you get from the NPS website (inside the quotes so it is a string). Then, rename the file to just `secret.js`: this is the filename [fetchData.js](src/js/fetchData.js) calls to access the API key (visible in line 1 of [fetchData.js](src/js/fetchData.js)).
 
 You can freely change the filename or variable name from [secretSample.js](src/js/secretSample.js), but you should mirror those changes in [fetchData.js](src/js/fetchData.js).
 
@@ -92,7 +92,7 @@ You can freely change the filename or variable name from [secretSample.js](src/j
 
 This national parks page was built with JavaScript and SCSS. It uses [webpack 5](https://webpack.js.org/), including [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin), and more (see [package.json](package.json) for the full list of dependencies).
 
-The color scheme was designed with the help of [Colormind](http://colormind.io/) and [Coolors](https://coolors.co/). The header "logo" and social media icons are from [Ionicons](https://ionic.io/ionicons).
+The color scheme was designed with the help of [Colormind](http://colormind.io/) and [Coolors](https://coolors.co/). The header "logo" and footer social media icons are from [Ionicons](https://ionic.io/ionicons).
 
 The hero image is a photo of Muir Woods by [Corey Agopian on Unsplash](https://unsplash.com/photos/XGOzlCNeP1I). The header / footer texture overlay is from [Transparent Textures](https://www.transparenttextures.com/).
 
