@@ -3,29 +3,21 @@ import backupParks from "./backup.js";
 import { displayParkData, clearParksCards } from "./displayData.js";
 import states from "./formStates.js";
 
-const fetchParksData = function (state) {
+const fetchParksData = (state) => {
   return fetch(
     `https://developer.nps.gov/api/v1/parks?stateCode=${state}&limit=12&api_key=${nationalParksKey}`,
     { mode: "cors" }
-  )
-    .then((result) => {
-      if (result.ok) {
-        // if code 200
-        return result.json(); // finish reading the data
-      } else {
-        throw result;
-      }
-    })
-    .then((response) => response) // return read data
-    .catch((err) => displayError(err));
+  );
 };
 
 const parksData = async (state) => {
-  const data = await fetchParksData(state);
-  if (data) {
+  try {
+    const response = await fetchParksData(state);
+    const data = await response.json();
+
     displayParkData(data.data);
-  } else {
-    displayParkData(backupParks.data); // saved data on 4 parks in case NPS is offline
+  } catch {
+    displayParkData(backupParks.data);
   }
 };
 
