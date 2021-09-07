@@ -31,7 +31,7 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    overflow: hidden;
+    overflow: hidden; // For when walk animation goes off-screen
     .logo {
       position: absolute;
       color: $vibrant-yellow;
