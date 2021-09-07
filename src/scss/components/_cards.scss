@@ -1,5 +1,9 @@
 .content-cards {
   .cards-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     text-align: center;
     margin: 4rem 0.5rem;
     #state-search {
@@ -11,6 +15,7 @@
       padding: 0 0.5rem;
       option {
         font-size: 1rem;
+        text-align: center;
       }
     }
   }
