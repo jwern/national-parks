@@ -2,7 +2,7 @@
 
 # National Parks Page
 
-This is a single-page website that utilizes the N[ational Park Service (NPS) API](https://www.nps.gov/subjects/developer/api-documentation.htm) to fetch information about parks in a chosen state. The current version will only return the first 12 parks from a selected state (if a state has fewer than 12 parks listed in the NPS database, then all parks will be fetched).
+This is a single-page website that utilizes the [National Park Service (NPS) API](https://www.nps.gov/subjects/developer/api-documentation.htm) to fetch information about parks in a chosen state. The current version will only return the first 12 parks from a selected state (if a state has fewer than 12 parks listed in the NPS database, then all parks will be fetched).
 
 This project was built as a challenge over a two-day span.
 
