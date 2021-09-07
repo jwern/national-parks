@@ -2,7 +2,7 @@
 
 # National Parks Page
 
-This is a single-page website that utilizes the National Park Service (NPS) API to fetch information about parks in a chosen state. The current version will only return the first 12 parks from a selected state (if a state has fewer than 12 parks listed in the NPS database, then all parks will be fetched).
+This is a single-page website that utilizes the N[ational Park Service (NPS) API](https://www.nps.gov/subjects/developer/api-documentation.htm) to fetch information about parks in a chosen state. The current version will only return the first 12 parks from a selected state (if a state has fewer than 12 parks listed in the NPS database, then all parks will be fetched).
 
 This project was built as a challenge over a two-day span.
 
@@ -14,16 +14,16 @@ The additional functionality that has been added beyond the required elements in
 
 If I were to revisit this project in the future, these are some of the additional features I would consider adding:
 
-[] Option to view more (or fewer) than 12 parks at a time
-[] Option to sort park list
-[] Other park search options, like 'view a random park' or 'view park nearest to me' based on location
-[] Randomized image selection from the API...
-[] ...and/or carousel of images of the park within its card
-[] Hero image that updates to match the chosen state...
-[] ...and/or hero image that is an auto-scrolling carousel of park images
-[] Ability to expand / read more of the truncated description text
-[] More accessibility features
-[] Jump / anchor buttons for moving between cards on smaller viewports
+[ ] Option to view more (or fewer) than 12 parks at a time
+[ ] Option to sort park list
+[ ] Other park search options, like 'view a random park' or 'view park nearest to me' based on location
+[ ] Randomized image selection from the API...
+[ ] ...and/or carousel of images of the park within its card
+[ ] Hero image that updates to match the chosen state...
+[ ] ...and/or hero image that is an auto-scrolling carousel of park images
+[ ] Ability to expand / read more of the truncated description text
+[ ] More accessibility features
+[ ] Jump / anchor buttons for moving between cards on smaller viewports
 
 ## Screenshots
 
@@ -76,7 +76,7 @@ This is the folder you should use when pushing your site live.
 
 To access the NPS API, you'll need an API key. You can get one for free at the [NPS developer resources page](https://www.nps.gov/subjects/developer/get-started.htm).
 
-In the [src/js](src/js) folder, you should see a file named [secretSample.js](secretSample.js). It looks like this:
+In the [src/js](src/js) folder, you should see a file named [secretSample.js](src/js/secretSample.js). It looks like this:
 
 ```
 const nationalParksKey = "YOUR_KEY_HERE";
@@ -86,7 +86,7 @@ export default nationalParksKey;
 
 In this file, where you see "YOUR*KEY_HERE", paste the key you get from the NPS website (inside the quotes so it is a string). Then, rename the file to just \_secret.js*: this is the filename [fetchData.js](src/js/fetchData.js) calls to access the API key.
 
-You can freely change the filename or variable name from [secretSample.js](secretSample.js), but you should mirror those changes in [fetchData.js](src/js/fetchData.js).
+You can freely change the filename or variable name from [secretSample.js](src/js/secretSample.js), but you should mirror those changes in [fetchData.js](src/js/fetchData.js).
 
 ## Technologies / Credits
 
