@@ -1,15 +1,24 @@
 import "../scss/style.scss";
 import "../template.html"; // For dev-server hot-reload
-import parksData from "./fetchData.js";
-
-// Fetch and display parks data
-window.addEventListener("load", parksData);
+import {
+  parksData,
+  addListenerToForm,
+  appendOptionsToForm,
+} from "./fetchData.js";
 
 // Just for fun: "walk" the logo on hover
-window.addEventListener("load", () => {
+const addListenerToLogo = () => {
   const logo = document.querySelector(".logo");
   logo.addEventListener("mouseenter", (event) => {
     event.target.classList.add("start-walking");
     event.target.classList.toggle("paused");
   });
+};
+
+// Page setup on load
+window.addEventListener("load", () => {
+  addListenerToForm();
+  appendOptionsToForm();
+  parksData("CA");
+  addListenerToLogo();
 });

@@ -1,10 +1,11 @@
 import nationalParksKey from "./secret.js";
-import backupParks from "./backupData.js";
-import displayParkData from "./displayData.js";
+import backupParks from "./backup.js";
+import { displayParkData, clearParksCards } from "./displayData.js";
+import states from "./formStates.js";
 
-const fetchParksData = function () {
+const fetchParksData = function (state) {
   return fetch(
-    `https://developer.nps.gov/api/v1/parks?stateCode=CA&limit=12&api_key=${nationalParksKey}`,
+    `https://developer.nps.gov/api/v1/parks?stateCode=${state}&limit=12&api_key=${nationalParksKey}`,
     { mode: "cors" }
   )
     .then((result) => {
@@ -19,8 +20,8 @@ const fetchParksData = function () {
     .catch((err) => displayError(err));
 };
 
-const parksData = async () => {
-  const data = await fetchParksData();
+const parksData = async (state) => {
+  const data = await fetchParksData(state);
   if (data) {
     displayParkData(data.data);
   } else {
@@ -28,4 +29,30 @@ const parksData = async () => {
   }
 };
 
-export default parksData;
+const getStateFromDropdown = (formInput) => {
+  clearParksCards();
+  parksData(formInput.value);
+};
+
+const getForm = () => document.getElementById("state-search");
+
+const addListenerToForm = () => {
+  const form = getForm();
+  form.addEventListener("change", (event) => {
+    getStateFromDropdown(event.target);
+  });
+};
+
+const appendOptionsToForm = () => {
+  const selectForm = getForm();
+
+  for (let state in states) {
+    let option = document.createElement("option");
+    option.value = state;
+    option.name = state;
+    option.innerText = states[state];
+    selectForm.appendChild(option);
+  }
+};
+
+export { parksData, addListenerToForm, appendOptionsToForm };

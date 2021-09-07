@@ -69,8 +69,10 @@ const createParkCard = (park) => {
   return card;
 };
 
+const getCardsContainer = () => document.querySelector(".cards-container");
+
 const appendParkCard = (card) => {
-  const cardsContainer = document.querySelector(".cards-container");
+  const cardsContainer = getCardsContainer();
   cardsContainer.appendChild(card);
 };
 
@@ -81,4 +83,11 @@ const displayParkData = (data) => {
   }
 };
 
-export default displayParkData;
+const clearParksCards = () => {
+  const cardsContainer = getCardsContainer();
+  while (cardsContainer.lastChild) {
+    cardsContainer.removeChild(cardsContainer.lastChild);
+  }
+};
+
+export { displayParkData, clearParksCards };
