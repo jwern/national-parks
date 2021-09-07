@@ -1,5 +1,4 @@
 import "../scss/style.scss";
-import "../template.html"; // For dev-server hot-reload
 import {
   parksData,
   addListenerToForm,
