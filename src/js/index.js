@@ -1,6 +1,6 @@
 import "../scss/style.scss";
 import {
-  parksData,
+  fetchAndDisplayData,
   addListenerToForm,
   appendOptionsToForm,
 } from "./fetchData.js";
@@ -18,6 +18,6 @@ const addListenerToLogo = () => {
 window.addEventListener("load", () => {
   addListenerToForm();
   appendOptionsToForm();
-  parksData("CA");
+  fetchAndDisplayData("CA");
   addListenerToLogo();
 });
