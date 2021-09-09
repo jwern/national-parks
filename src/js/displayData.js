@@ -1,73 +1,92 @@
-// We only want the first 3 actiivties at most, but:
-// some parks won't have 3 activities
-const getParkActivities = (park) => {
-  const activities = park.activities.slice(0, 3);
-  const selection = activities.map((activity) => activity.name);
-
-  return selection.join(", ");
-};
-
-const gpsNumber = (number) => Number(number).toFixed(3);
-
-const formatCoordinates = (park) => {
-  const latitude = gpsNumber(park.latitude);
-  const longitude = gpsNumber(park.longitude);
-
-  let northSouth, eastWest;
-
-  latitude < 0 ? (northSouth = "S") : (northSouth = "N");
-  longitude < 0 ? (eastWest = "W") : (eastWest = "E");
-
-  return `${latitude} ${northSouth} ${longitude} ${eastWest}`;
-};
-
-const findNextSpace = (description, max) => {
-  if (description[max] !== " ") {
-    max = description.indexOf(" ", max);
+class Park {
+  constructor(parkObject) {
+    this.name = parkObject.fullName;
+    this.description = parkObject.description;
+    this.images = parkObject.images;
+    this.link = parkObject.url;
+    this.latitude = parkObject.latitude;
+    this.longitude = parkObject.longitude;
+    this.activities = parkObject.activities;
   }
 
-  return description.slice(0, max);
-};
+  getActivities() {
+    const activities = this.activities.slice(0, 3);
+    const selection = activities.map((activity) => activity.name);
 
-const truncateString = (description) => {
-  const maxCharacters = 160;
-  let shortened;
-
-  if (description.length > maxCharacters) {
-    shortened = `${findNextSpace(description, maxCharacters)}...`;
-  } else {
-    shortened = description;
+    return selection.join(", ");
   }
 
-  return shortened;
-};
+  static gpsNumber(coord, decimal) {
+    return Number(coord).toFixed(decimal);
+  }
 
-const createParkCard = (park) => {
-  const cardTemplate = document.getElementById("card-template");
-  const card = cardTemplate.content.cloneNode(true);
+  formatCoordinates() {
+    const latitude = Park.gpsNumber(this.latitude, 3);
+    const longitude = Park.gpsNumber(this.longitude, 3);
 
-  const parkName = card.querySelector(".park-name");
-  parkName.innerText = park.fullName;
+    let northSouth, eastWest;
 
-  const parkImage = card.querySelector(".park-image");
-  // could add randomizing function -- pull random image from array
-  parkImage.src = park.images[0].url;
-  parkImage.alt = park.fullName;
+    latitude < 0 ? (northSouth = "S") : (northSouth = "N");
+    longitude < 0 ? (eastWest = "W") : (eastWest = "E");
 
-  const parkDescription = card.querySelector(".park-description");
-  parkDescription.innerText = truncateString(park.description);
+    return `${latitude} ${northSouth} ${longitude} ${eastWest}`;
+  }
 
-  const parkCoordinates = card.querySelector(".park-coordinates");
-  parkCoordinates.innerText = formatCoordinates(park);
+  static findNextSpace(string, max) {
+    if (string[max] !== " ") {
+      max = string.indexOf(" ", max);
+    }
 
-  const parkActivities = card.querySelector(".park-activities");
-  parkActivities.innerText = getParkActivities(park);
+    return string.slice(0, max);
+  }
 
-  const parkLink = card.querySelector(".park-link");
-  parkLink.href = park.url;
+  static truncateString(string) {
+    const maxCharacters = 160;
+    let shortened;
 
-  return card;
-};
+    if (string.length > maxCharacters) {
+      shortened = `${Park.findNextSpace(string, maxCharacters)}...`;
+    } else {
+      shortened = string;
+    }
+
+    return shortened;
+  }
+
+  static randomIndexNumber(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  selectImage() {
+    let chosenImage = this.images[Park.randomIndexNumber(this.images.length)];
+    return [chosenImage.url, chosenImage.altText];
+  }
+
+  createCard() {
+    const cardTemplate = document.getElementById("card-template");
+    const card = cardTemplate.content.cloneNode(true);
+
+    const parkName = card.querySelector(".park-name");
+    parkName.innerText = this.name;
+
+    const parkImage = card.querySelector(".park-image");
+    [parkImage.src, parkImage.alt] = this.selectImage();
+
+    const parkDescription = card.querySelector(".park-description");
+    parkDescription.innerText = Park.truncateString(this.description);
+
+    const parkCoordinates = card.querySelector(".park-coordinates");
+    parkCoordinates.innerText = this.formatCoordinates();
+
+    const parkActivities = card.querySelector(".park-activities");
+    parkActivities.innerText = this.getActivities();
+
+    const parkLink = card.querySelector(".park-link");
+    parkLink.href = this.link;
+
+    return card;
+  }
+}
 
 const getCardsContainer = () => document.querySelector(".cards-container");
 
@@ -78,7 +97,8 @@ const appendParkCard = (card) => {
 
 const displayParkData = (data) => {
   for (let park of data) {
-    let card = createParkCard(park);
+    let parkInstance = new Park(park);
+    let card = parkInstance.createCard();
     appendParkCard(card);
   }
 };
