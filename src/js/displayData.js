@@ -13,10 +13,8 @@ const formatCoordinates = (park) => {
   const latitude = gpsNumber(park.latitude);
   const longitude = gpsNumber(park.longitude);
 
-  let northSouth, eastWest;
-
-  latitude < 0 ? (northSouth = "S") : (northSouth = "N");
-  longitude < 0 ? (eastWest = "W") : (eastWest = "E");
+  let northSouth = latitude < 0 ? "S" : "N";
+  let eastWest = longitude < 0 ? "W" : "E";
 
   return `${latitude} ${northSouth} ${longitude} ${eastWest}`;
 };
@@ -31,15 +29,10 @@ const findNextSpace = (description, max) => {
 
 const truncateString = (description) => {
   const maxCharacters = 160;
-  let shortened;
 
-  if (description.length > maxCharacters) {
-    shortened = `${findNextSpace(description, maxCharacters)}...`;
-  } else {
-    shortened = description;
-  }
-
-  return shortened;
+  return description.length > maxCharacters
+    ? `${findNextSpace(description, maxCharacters)}...`
+    : description;
 };
 
 const createParkCard = (park) => {
@@ -51,6 +44,7 @@ const createParkCard = (park) => {
 
   const parkImage = card.querySelector(".park-image");
   // could add randomizing function -- pull random image from array
+  // Math.floor(Math.random() * max);
   parkImage.src = park.images[0].url;
   parkImage.alt = park.fullName;
 
