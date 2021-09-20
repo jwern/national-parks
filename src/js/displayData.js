@@ -80,6 +80,14 @@ const createCard = (park) => {
   return card;
 };
 
+const createHero = (imageArray) => {
+  const selectedImage =
+    imageArray[Park.randomIndexNumber(imageArray.length)][0];
+
+  const heroBanner = document.querySelector(".hero-banner");
+  heroBanner.style.backgroundImage = `url(${selectedImage})`;
+};
+
 const getCardsContainer = () => document.querySelector(".cards-container");
 
 const appendParkCard = (card) => {
@@ -88,11 +96,16 @@ const appendParkCard = (card) => {
 };
 
 const displayParkData = (data) => {
+  let hero = [];
+
   for (let parkData of data) {
     let park = new Park(parkData);
     let card = createCard(park);
+    hero.push(park.selectImage());
     appendParkCard(card);
   }
+
+  createHero(hero);
 };
 
 const clearParksCards = () => {

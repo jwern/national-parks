@@ -1,9 +1,11 @@
+$hero-image-default: url("../images/muir_woods.jpg");
+
 .hero {
   height: 50vh;
   overflow-y: hidden;
   .hero-banner {
     height: 100%;
-    background: $light-green url("../images/muir_woods.jpg") no-repeat center;
+    background: $light-green $hero-image-default no-repeat center;
     background-size: cover;
     display: flex;
     align-items: center;
