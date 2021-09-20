@@ -33,7 +33,7 @@ header {
     align-items: center;
     overflow: hidden; // For when walk animation goes off-screen
     .logo {
-      position: absolute;
+      position: relative;
       color: $vibrant-yellow;
       font-size: 4rem;
       line-height: 50%;
