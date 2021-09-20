@@ -1,5 +1,6 @@
 .hero {
   height: 50vh;
+  overflow-y: hidden;
   .hero-banner {
     height: 100%;
     background: $light-green url("../images/muir_woods.jpg") no-repeat center;
