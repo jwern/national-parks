@@ -49,8 +49,12 @@ class Park {
     return Math.floor(Math.random() * max);
   }
 
+  static randomImage(images) {
+    return images[Park.randomIndexNumber(images.length)];
+  }
+
   selectImage() {
-    let chosenImage = this.images[Park.randomIndexNumber(this.images.length)];
+    let chosenImage = Park.randomImage(this.images);
     return [chosenImage.url, chosenImage.altText];
   }
 }
@@ -81,11 +85,10 @@ const createCard = (park) => {
 };
 
 const createHero = (imageArray) => {
-  const selectedImage =
-    imageArray[Park.randomIndexNumber(imageArray.length)][0];
+  const selectedImage = Park.randomImage(imageArray);
 
   const heroBanner = document.querySelector(".hero-banner");
-  heroBanner.style.backgroundImage = `url(${selectedImage})`;
+  heroBanner.style.backgroundImage = `url(${selectedImage[0]})`;
 };
 
 const getCardsContainer = () => document.querySelector(".cards-container");
