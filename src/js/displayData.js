@@ -53,32 +53,32 @@ class Park {
     let chosenImage = this.images[Park.randomIndexNumber(this.images.length)];
     return [chosenImage.url, chosenImage.altText];
   }
-
-  createCard() {
-    const cardTemplate = document.getElementById("card-template");
-    const card = cardTemplate.content.cloneNode(true);
-
-    const parkName = card.querySelector(".park-name");
-    parkName.innerText = this.name;
-
-    const parkImage = card.querySelector(".park-image");
-    [parkImage.src, parkImage.alt] = this.selectImage();
-
-    const parkDescription = card.querySelector(".park-description");
-    parkDescription.innerText = Park.truncateString(this.description);
-
-    const parkCoordinates = card.querySelector(".park-coordinates");
-    parkCoordinates.innerText = this.formatCoordinates();
-
-    const parkActivities = card.querySelector(".park-activities");
-    parkActivities.innerText = this.getActivities();
-
-    const parkLink = card.querySelector(".park-link");
-    parkLink.href = this.link;
-
-    return card;
-  }
 }
+
+const createCard = (park) => {
+  const cardTemplate = document.getElementById("card-template");
+  const card = cardTemplate.content.cloneNode(true);
+
+  const parkName = card.querySelector(".park-name");
+  parkName.innerText = park.name;
+
+  const parkImage = card.querySelector(".park-image");
+  [parkImage.src, parkImage.alt] = park.selectImage();
+
+  const parkDescription = card.querySelector(".park-description");
+  parkDescription.innerText = Park.truncateString(park.description);
+
+  const parkCoordinates = card.querySelector(".park-coordinates");
+  parkCoordinates.innerText = park.formatCoordinates();
+
+  const parkActivities = card.querySelector(".park-activities");
+  parkActivities.innerText = park.getActivities();
+
+  const parkLink = card.querySelector(".park-link");
+  parkLink.href = park.link;
+
+  return card;
+};
 
 const getCardsContainer = () => document.querySelector(".cards-container");
 
@@ -88,9 +88,9 @@ const appendParkCard = (card) => {
 };
 
 const displayParkData = (data) => {
-  for (let park of data) {
-    let parkInstance = new Park(park);
-    let card = parkInstance.createCard();
+  for (let parkData of data) {
+    let park = new Park(parkData);
+    let card = createCard(park);
     appendParkCard(card);
   }
 };
